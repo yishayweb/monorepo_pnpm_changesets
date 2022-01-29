@@ -1,5 +1,11 @@
 # @yishay20/p13
 
+## 2.0.0
+
+### Major Changes
+
+- 2faddd3: made a major update in p13 to check how it updates
+
 ## 1.0.2
 
 ### Patch Changes
