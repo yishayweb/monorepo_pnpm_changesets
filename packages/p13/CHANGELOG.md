@@ -1,5 +1,15 @@
 # @yishay20/p13
 
+## 2.1.0
+
+### Minor Changes
+
+- 5bff600: updated return value in p13 - 6
+
+### Patch Changes
+
+- f92dda9: return value changed in p13
+
 ## 2.0.0
 
 ### Major Changes
