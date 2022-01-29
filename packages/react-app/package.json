@@ -12,7 +12,6 @@
     "@babel/core": "^7.16.5",
     "@babel/preset-env": "^7.16.5",
     "@babel/preset-react": "^7.16.5",
-    "@yishay20/p13": "^1.0.0",
     "babel-loader": "^8.2.3",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.5.1",
@@ -23,6 +22,7 @@
     "webpack-dev-server": "^4.6.0"
   },
   "dependencies": {
+    "@yishay20/p13": "workspace:^1.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },

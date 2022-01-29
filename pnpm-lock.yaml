@@ -33,7 +33,7 @@ importers:
       '@babel/core': ^7.16.5
       '@babel/preset-env': ^7.16.5
       '@babel/preset-react': ^7.16.5
-      '@yishay20/p13': ^1.0.0
+      '@yishay20/p13': workspace:^1.0.0
       babel-loader: ^8.2.3
       clean-webpack-plugin: ^4.0.0
       css-loader: ^6.5.1
@@ -45,13 +45,13 @@ importers:
       webpack-cli: ^4.9.1
       webpack-dev-server: ^4.6.0
     dependencies:
+      '@yishay20/p13': link:../p13
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
     devDependencies:
       '@babel/core': 7.16.12
       '@babel/preset-env': 7.16.11_@babel+core@7.16.12
       '@babel/preset-react': 7.16.7_@babel+core@7.16.12
-      '@yishay20/p13': link:../p13
       babel-loader: 8.2.3_e748cba1f5e972defd8ae51292b4033f
       clean-webpack-plugin: 4.0.0_webpack@5.67.0
       css-loader: 6.5.1_webpack@5.67.0
