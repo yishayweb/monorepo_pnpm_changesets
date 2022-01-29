@@ -1,4 +1,4 @@
 export const SayHi = () => {
   console.log("hi there also to 6");
-  return "Hi There from p1 in the it";
+  return "package p1 - 1";
 };
