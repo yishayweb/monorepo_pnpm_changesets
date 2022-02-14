@@ -1,5 +1,11 @@
 # @yishay20/p13
 
+## 3.0.0
+
+### Major Changes
+
+- f96266c: updated p13 text to 20
+
 ## 2.2.0
 
 ### Minor Changes
