@@ -1,5 +1,15 @@
 # @yishay20/p13
 
+## 2.2.0
+
+### Minor Changes
+
+- d82b1b0: updated text in p13 to 10
+
+### Patch Changes
+
+- af9d9db: updated text in p13 to 14
+
 ## 2.1.0
 
 ### Minor Changes
