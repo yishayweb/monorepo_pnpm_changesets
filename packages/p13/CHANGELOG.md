@@ -1,5 +1,11 @@
 # @yishay20/p13
 
+## 3.0.2
+
+### Patch Changes
+
+- e47446d: updated p13 text to 32
+
 ## 3.0.1
 
 ### Patch Changes
