@@ -1,5 +1,11 @@
 # @yishay20/p13
 
+## 3.0.1
+
+### Patch Changes
+
+- c9fb1eb: updated p13 text to 25
+
 ## 3.0.0
 
 ### Major Changes
