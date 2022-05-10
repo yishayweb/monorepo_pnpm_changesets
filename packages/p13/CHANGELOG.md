@@ -1,5 +1,11 @@
 # @yishay20/p13
 
+## 3.1.2
+
+### Patch Changes
+
+- 49a6546: updated p13 text to 57
+
 ## 3.1.1
 
 ### Patch Changes
