@@ -1,5 +1,11 @@
 # @yishay20/p13
 
+## 3.1.0
+
+### Minor Changes
+
+- fadd223: updated p13 text to 48
+
 ## 3.0.2
 
 ### Patch Changes
