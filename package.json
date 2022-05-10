@@ -5,7 +5,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "workspace_build": "pnpm run -r build",
+    "release_packages": "pnpm run workspace_build && changeset publish"
   },
   "author": "",
   "license": "ISC",
