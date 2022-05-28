@@ -47,5 +47,5 @@ jobs:
       - name: print env var
         run: echo ${{ env.CHANGESET_EXISTS }}
       - name: Check if changesets exists in env var
-        if: env.CHANGESET_EXISTS == false
-        run: echo "a changeset does not exist in this pell request"; exit 1
+        if: env.CHANGESET_EXISTS != 'true'
+        run: echo "a changeset does not exist in this pull request"; exit 1
