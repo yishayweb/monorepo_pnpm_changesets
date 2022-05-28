@@ -28,11 +28,9 @@ jobs:
             echo "$file was changed"
           done
       - name: Check if changesets exists
-        if: contains(steps.changed-files.outputs.all_changed_files, '^changeset/.+')
+        if: contains(steps.changed-files.outputs.all_changed_files, '^.changeset/.+')
         run: |
           echo "a changeset exists"
-      - name: Print array
-        run: echo ${{ steps.changed-files.outputs.all_changed_files }}
       - name: Loop over file list
         run: |
           for fileIn in ${{ steps.changed-files.outputs.all_changed_files }}; do
@@ -45,5 +43,5 @@ jobs:
             fi
           done
       - name: Check if changesets exists in env var
-        if: env.CHANGESET_EXISTS
-        run: echo "the changeset exists"
+        if: env.CHANGESET_EXISTS != true
+        run: echo "a changeset does not exist in this pell request"; exit 1
