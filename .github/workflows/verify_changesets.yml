@@ -11,6 +11,7 @@ env:
 
 jobs:
   build:
+    if: startsWith(github.head_ref, 'changeset-release/master') != 'true'
     runs-on: ubuntu-latest # windows-latest | macos-latest
     name: Test changed-files
     steps:
