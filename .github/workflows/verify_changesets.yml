@@ -34,6 +34,6 @@ jobs:
         run: |
           for fileIn in ${{ steps.changed-files.outputs.all_changed_files }}; do
             if true; then
-              echo $fileIn is not a changeset
+              echo "$fileIn is not a changeset"
             else
-              echo $fileIn is a changeset
+              echo "$fileIn is a changeset"
