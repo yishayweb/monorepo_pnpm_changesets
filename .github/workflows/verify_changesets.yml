@@ -19,8 +19,8 @@ jobs:
           fetch-depth: 0 # OR "2" -> To retrieve the preceding commit.
 
       - name: Check if workflow needs to run
-        if: startsWith(github.head_ref, 'changeset-release/master') != 'true'
-        run: echo "this version pull request doesn't need to check for changesets"
+        if: github.head_ref == 'changeset-release/master'
+        run: echo ${{ github.head_ref }} == 'changeset-release/master'
 
       - name: Get changed files
         id: changed-files
@@ -51,5 +51,5 @@ jobs:
       - name: print env var
         run: echo ${{ env.CHANGESET_EXISTS }}
       - name: Check if changesets exists in env var
-        if: env.CHANGESET_EXISTS != 'true' && startsWith(github.head_ref, 'changeset-release/master') != 'true'
+        if: env.CHANGESET_EXISTS != 'true' && github.head_ref != 'changeset-release/master'
         run: echo "a changeset does not exist in this pull request"; exit 1
