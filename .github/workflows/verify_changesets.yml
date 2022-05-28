@@ -6,6 +6,9 @@ on:
     branches:
       - master
 
+env:
+  CHANGESET_EXISTS: ${{ false }}
+
 jobs:
   build:
     runs-on: ubuntu-latest # windows-latest | macos-latest
@@ -24,3 +27,25 @@ jobs:
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
             echo "$file was changed"
           done
+      - name: Check if changesets exists
+        if: contains(steps.changed-files.outputs.all_changed_files, '^.changeset/.+')
+        run: |
+          echo "a changeset exists"
+      - name: print env var before
+        run: echo ${{ env.CHANGESET_EXISTS }}
+      - name: Loop over file list
+        run: |
+          for fileIn in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            echo $fileIn
+            if [[ $fileIn == .changeset/* ]] && [[ $fileIn == *.md ]] ; then
+              echo "$fileIn is a changeset"
+              echo "CHANGESET_EXISTS=true" >> $GITHUB_ENV
+            else
+              echo "$fileIn is not a changeset"
+            fi
+          done
+      - name: print env var
+        run: echo ${{ env.CHANGESET_EXISTS }}
+      - name: Check if changesets exists in env var
+        if: env.CHANGESET_EXISTS == false
+        run: echo "a changeset does not exist in this pell request"; exit 1
