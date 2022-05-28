@@ -37,3 +37,5 @@ jobs:
               echo "$fileIn is not a changeset"
             else
               echo "$fileIn is a changeset"
+            fi
+          done
