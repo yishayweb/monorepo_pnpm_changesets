@@ -19,8 +19,7 @@ jobs:
           fetch-depth: 0 # OR "2" -> To retrieve the preceding commit.
 
       - name: Check if workflow needs to run
-        if: startsWith(github.head_ref, 'changeset-release/master') != 'true'
-        run: echo "this version pull request doesn't need to check for changesets"
+        run: echo ${{ github.head_ref }}
 
       - name: Get changed files
         id: changed-files
