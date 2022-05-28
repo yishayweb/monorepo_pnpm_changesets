@@ -33,7 +33,7 @@ jobs:
       - name: Loop over file list
         run: |
           for fileIn in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            if !startsWith($fileIn, '.changeset/'); then
+            if startsWith($fileIn, '.changeset/') != true; then
               echo $fileIn is not a changeset
             else
               echo $fileIn is a changeset
