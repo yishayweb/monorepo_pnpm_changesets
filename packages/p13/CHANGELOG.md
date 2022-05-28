@@ -1,5 +1,12 @@
 # @yishay20/p13
 
+## 3.1.8
+
+### Patch Changes
+
+- c2d9619: updated text to 68
+- be8c449: updated text to be the 70
+
 ## 3.1.7
 
 ### Patch Changes
