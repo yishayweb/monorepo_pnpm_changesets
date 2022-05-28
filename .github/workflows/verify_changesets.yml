@@ -30,3 +30,10 @@ jobs:
           echo "a changeset exists"
       - name: Print array
         run: echo ${{ steps.changed-files.outputs.all_changed_files }}
+      - name: Loop over file list
+        run: |
+          for fileIn in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            if !startsWith($fileIn, '.changeset/'); then
+              echo $fileIn is not a changeset
+            else
+              echo $fileIn is a changeset
