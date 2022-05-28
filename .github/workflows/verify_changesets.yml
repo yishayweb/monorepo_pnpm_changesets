@@ -51,5 +51,5 @@ jobs:
       - name: print env var
         run: echo ${{ env.CHANGESET_EXISTS }}
       - name: Check if changesets exists in env var
-        if: env.CHANGESET_EXISTS != 'true' && github.head_ref == 'changeset-release/master'
+        if: env.CHANGESET_EXISTS != 'true' && github.head_ref != 'changeset-release/master'
         run: echo "a changeset does not exist in this pull request"; exit 1
