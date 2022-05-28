@@ -6,6 +6,9 @@ on:
     branches:
       - master
 
+env:
+  CHANGESET_EXISTS: ${{ false }}
+
 jobs:
   build:
     runs-on: ubuntu-latest # windows-latest | macos-latest
@@ -31,14 +34,16 @@ jobs:
       - name: Print array
         run: echo ${{ steps.changed-files.outputs.all_changed_files }}
       - name: Loop over file list
-        env:
-          CHANGESET_EXISTS: ${{ false }}
         run: |
           for fileIn in ${{ steps.changed-files.outputs.all_changed_files }}; do
             echo $fileIn
             if [[ $fileIn == .changeset/* ]] && [[ $fileIn == *.md ]] ; then
               echo "$fileIn is a changeset"
+              echo "CHANGESET_EXISTS=true" >> $GITHUB_ENV
             else
               echo "$fileIn is not a changeset"
             fi
           done
+      - name: Check if changesets exists in env var
+        if: env.CHANGESET_EXISTS
+        run: echo "the changeset exists"
