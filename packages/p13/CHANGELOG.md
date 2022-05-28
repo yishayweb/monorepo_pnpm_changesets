@@ -1,5 +1,13 @@
 # @yishay20/p13
 
+## 3.1.6
+
+### Patch Changes
+
+- 2979d2b: try regex 10
+- 72000ea: updated text to 66
+- ddaad2d: updated text to 65
+
 ## 3.1.5
 
 ### Patch Changes
