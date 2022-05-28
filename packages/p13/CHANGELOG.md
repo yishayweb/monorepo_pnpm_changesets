@@ -1,5 +1,11 @@
 # @yishay20/p13
 
+## 3.1.7
+
+### Patch Changes
+
+- e27088d: updated text to 67
+
 ## 3.1.6
 
 ### Patch Changes
