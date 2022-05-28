@@ -25,7 +25,7 @@ jobs:
             echo "$file was changed"
           done
       - name: Check if changesets exists
-        if: contains(steps.changed-files.outputs.all_changed_files, '^changeset/[a-z]+-[a-z]+-[a-z]+')
+        if: contains(steps.changed-files.outputs.all_changed_files, '^changeset/.+')
         run: |
           echo "a changeset exists"
       - name: Print array
