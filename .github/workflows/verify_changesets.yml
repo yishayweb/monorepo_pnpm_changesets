@@ -19,7 +19,7 @@ jobs:
           fetch-depth: 0 # OR "2" -> To retrieve the preceding commit.
 
       - name: Check if workflow needs to run
-        if: github.head_ref == 'branch_70'
+        if: github.head_ref == 'branch_69'
         run: echo ${{ github.head_ref }} == 'changeset-release/master'
 
       - name: Get changed files
