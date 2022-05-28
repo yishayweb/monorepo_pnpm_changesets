@@ -35,7 +35,7 @@ jobs:
           CHANGESET_EXISTS: ${{ false }}
         run: |
           for fileIn in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            startsWith('hello changeset', 'changeset') >> $CHANGESET_EXISTS
+            contains(steps.changed-files.outputs.all_changed_files, '^changeset/.+')
             if ${CHANGESET_EXISTS} != true; then
               echo "$fileIn is not a changeset"
             else
