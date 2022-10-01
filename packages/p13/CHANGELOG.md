@@ -1,5 +1,11 @@
 # @yishay20/p13
 
+## 3.3.0
+
+### Minor Changes
+
+- beacae8: made text to be 128
+
 ## 3.2.0
 
 ### Minor Changes

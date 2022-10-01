@@ -1,5 +1,12 @@
 # @yishay20/p14
 
+## 3.0.0
+
+### Patch Changes
+
+- Updated dependencies [beacae8]
+  - @yishay20/p13@3.3.0
+
 ## 2.0.0
 
 ### Patch Changes
