@@ -1,5 +1,11 @@
 # @yishay20/p14
 
+## 1.0.4
+
+### Patch Changes
+
+- 24c5d3c: made p13 dependency of p14
+
 ## 1.0.3
 
 ### Patch Changes
