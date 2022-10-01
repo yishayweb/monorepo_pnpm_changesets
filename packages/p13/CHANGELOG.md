@@ -1,5 +1,11 @@
 # @yishay20/p13
 
+## 3.4.0
+
+### Minor Changes
+
+- 768f18a: updated text to be 152
+
 ## 3.3.0
 
 ### Minor Changes
