@@ -1,5 +1,13 @@
 # @yishay20/p13
 
+## 3.1.10
+
+### Patch Changes
+
+- 6f58143: updated text to 96
+- 3c1b185: updated tetst to 117
+- 14a9748: updated text to 95
+
 ## 3.1.9
 
 ### Patch Changes
