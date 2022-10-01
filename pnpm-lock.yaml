@@ -23,7 +23,7 @@ importers:
       '@babel/cli': ^7.16.0
       '@babel/core': ^7.16.5
       '@babel/preset-env': ^7.16.5
-      '@yishay20/p13': workspace:^3.2.0
+      '@yishay20/p13': workspace:^3.3.0
     devDependencies:
       '@babel/cli': 7.16.8_@babel+core@7.16.12
       '@babel/core': 7.16.12
@@ -4834,7 +4834,7 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /terser-webpack-plugin/5.3.0_webpack@5.67.0:
+  /terser-webpack-plugin/5.3.0_acorn@8.7.0+webpack@5.67.0:
     resolution: {integrity: sha512-LPIisi3Ol4chwAaPP8toUJ3L4qCM1G0wao7L3qNv57Drezxj6+VEyySpPw4B1HSO2Eg/hDY/MNF5XihCAoqnsQ==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
@@ -4854,14 +4854,32 @@ packages:
       schema-utils: 3.1.1
       serialize-javascript: 6.0.0
       source-map: 0.6.1
-      terser: 5.10.0
+      terser: 5.10.0_acorn@8.7.0
       webpack: 5.67.0_webpack-cli@4.9.2
+    transitivePeerDependencies:
+      - acorn
     dev: true
 
   /terser/5.10.0:
     resolution: {integrity: sha512-AMmF99DMfEDiRJfxfY5jj5wNH/bYO09cniSqhfoyxc8sFoYIgkJy86G04UoZU5VjlpnplVu0K6Tx6E9b5+DlHA==}
     engines: {node: '>=10'}
     hasBin: true
+    peerDependenciesMeta:
+      acorn:
+        optional: true
+    dependencies:
+      acorn: 8.7.0
+      commander: 2.20.3
+      source-map: 0.7.3
+      source-map-support: 0.5.21
+    dev: true
+
+  /terser/5.10.0_acorn@8.7.0:
+    resolution: {integrity: sha512-AMmF99DMfEDiRJfxfY5jj5wNH/bYO09cniSqhfoyxc8sFoYIgkJy86G04UoZU5VjlpnplVu0K6Tx6E9b5+DlHA==}
+    engines: {node: '>=10'}
+    hasBin: true
+    peerDependencies:
+      acorn: ^8.5.0
     peerDependenciesMeta:
       acorn:
         optional: true
@@ -5178,7 +5196,7 @@ packages:
       neo-async: 2.6.2
       schema-utils: 3.1.1
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.0_webpack@5.67.0
+      terser-webpack-plugin: 5.3.0_acorn@8.7.0+webpack@5.67.0
       watchpack: 2.3.1
       webpack-cli: 4.9.2_jxzjf4sxhotx45zbooi3s2cpbi
       webpack-sources: 3.2.3
