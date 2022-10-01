@@ -1,5 +1,11 @@
 # @yishay20/p13
 
+## 3.2.0
+
+### Minor Changes
+
+- a67b230: made text to be 126
+
 ## 3.1.10
 
 ### Patch Changes
