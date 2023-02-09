@@ -1,6 +1,9 @@
 name: Run Action
 
-on: push
+on:
+  push:
+    branches:
+      - bnxcbcxn
 
 jobs:
   run-custom-action:
