@@ -34,7 +34,7 @@ jobs:
         run: pnpm install
 
       - name: Create Release Pull Request
-        uses: ./actions/compiled_action
+        uses: changesets/action@v1
         with:
           publish: pnpm run release_packages
         env:
