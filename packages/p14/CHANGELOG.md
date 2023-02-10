@@ -1,5 +1,13 @@
 # @yishay20/p14
 
+## 3.0.1
+
+### Patch Changes
+
+- 600ca49: updated to 62
+- Updated dependencies [600ca49]
+  - @yishay20/p13@3.6.4
+
 ## 3.0.0
 
 ### Patch Changes
