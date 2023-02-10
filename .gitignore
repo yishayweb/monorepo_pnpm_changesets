@@ -5,3 +5,4 @@ lib
 changeset_status.json
 .pnpm-store
 actions/action_code
+scripts

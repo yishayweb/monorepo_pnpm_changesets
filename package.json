@@ -4,10 +4,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "workspace_build": "pnpm run -r build",
-    "release_packages": "pnpm run workspace_build && changeset publish"
+    "release_packages": "pnpm run workspace_build && changeset publish",
+    "packages-list": "node ./scripts/listPackages.js"
   },
   "author": "",
   "license": "ISC",
