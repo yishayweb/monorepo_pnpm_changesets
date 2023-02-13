@@ -1,5 +1,11 @@
 # @yishay20/p13
 
+## 3.6.7
+
+### Patch Changes
+
+- bddfa83: updated to 166
+
 ## 3.6.6
 
 ### Patch Changes
