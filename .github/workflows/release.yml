@@ -40,7 +40,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_CHANGESET_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        - name: Get changed files
+
+      - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v21
 
