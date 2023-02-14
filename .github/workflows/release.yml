@@ -34,7 +34,7 @@ jobs:
         run: pnpm install
 
       - name: Create Release Pull Request
-        id: changeset-action
+        id: changeset_action
         uses: changesets/action@v1
         with:
           publish: pnpm run release_packages
@@ -51,4 +51,4 @@ jobs:
         run: echo "${{ github.head_ref }}"
 
       - name: show pull request number
-        run: echo {{ steps.changeset-action.outputs.pullRequestNumber }}
+        run: echo "the pr number is ${{ steps.changeset_action.outputs.pullRequestNumber }}"
