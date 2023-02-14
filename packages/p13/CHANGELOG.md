@@ -1,5 +1,15 @@
 # @yishay20/p13
 
+## 3.6.9
+
+### Patch Changes
+
+- 7984bf4: updated to 170
+- ffe0ff7: updated to 193
+- 6f16e9a: updated to 172
+- bd67ba6: updated to 194
+- 28f09ab: updated to 171
+
 ## 3.6.8
 
 ### Patch Changes
