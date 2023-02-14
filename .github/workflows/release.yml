@@ -47,4 +47,4 @@ jobs:
           ls -a
 
       - name: Get branch name
-        run: echo "${{ github.head_ref }}""
+        run: echo "${{ github.head_ref }}"
