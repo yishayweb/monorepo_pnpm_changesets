@@ -51,4 +51,4 @@ jobs:
         run: echo "${{ github.head_ref }}"
 
       - name: show pull request number
-        run: echo "{{ steps.changeset-action.outputs.pullRequestNumber }}"
+        run: echo {{ steps.changeset-action.outputs.pullRequestNumber }}
