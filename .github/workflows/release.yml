@@ -52,3 +52,11 @@ jobs:
 
       - name: show pull request number
         run: echo "the pr number is ${{ steps.changeset_action.outputs.pullRequestNumber }}"
+
+      - name: Checkout PR
+        uses: dawidd6/action-checkout-pr@v1
+        with:
+        pr: ${{ steps.changeset_action.outputs.pullRequestNumber }}
+
+      - name: Get branch name
+        run: echo "${{ github.head_ref }}"
