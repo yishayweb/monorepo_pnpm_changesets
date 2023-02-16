@@ -59,10 +59,23 @@ jobs:
         with:
           pr: ${{ steps.changeset_action.outputs.pullRequestNumber }}
 
-      - name: Get branch name
-        id: branch-name
+      - name: Get branch name first
+        id: branch-name-first
         uses: tj-actions/branch-names@v6
 
-      - name: Running on the branch.
+      - name: Running on the branch first
         run: |
-          echo "Running on branch: ${{ steps.branch-name.outputs.current_branch }}"
+          echo "Running on branch: ${{ steps.branch-name-first.outputs.current_branch }}"
+
+      - name: Checkout PR branch v3
+        uses: actions/checkout@v3
+        with:
+          ref: changeset-release/master
+
+      - name: Get branch name second
+        id: branch-name-second
+        uses: tj-actions/branch-names@v6
+
+      - name: Running on the branch second
+        run: |
+          echo "Running on branch: ${{ steps.branch-name-second.outputs.current_branch }}"
