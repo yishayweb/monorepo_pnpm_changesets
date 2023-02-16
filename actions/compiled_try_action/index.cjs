@@ -9829,8 +9829,8 @@ __nccwpck_require__.r(__webpack_exports__);
   let octokit = _actions_github__WEBPACK_IMPORTED_MODULE_0__.getOctokit(githubToken);
 
   const { data: prDiff } = await octokit.rest.pulls.get({
-    owner: "octokit",
-    repo: "rest.js",
+    owner: "yishayweb",
+    repo: "monorepo_pnpm_changesets",
     pull_number: 103,
     mediaType: {
       format: "diff"
