@@ -11131,7 +11131,9 @@ const getDiff = async () => {
   console.log(diff);
   console.log("the diff stdout: ");
   console.log(diff.stdout);
-  console.log(typeof diff.stdout);
+  const filesArray = diff.stdout.split("\n");
+  console.log("files array: ");
+  console.log(filesArray);
 };
 
 (async () => {
