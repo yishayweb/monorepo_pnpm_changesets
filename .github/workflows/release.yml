@@ -47,16 +47,22 @@ jobs:
           pwd
           ls -a
 
-      - name: Get branch name
+      - name: Get branch name before
         run: echo "${{ github.head_ref }}"
 
       - name: show pull request number
         run: echo "the pr number is ${{ steps.changeset_action.outputs.pullRequestNumber }}"
 
       - name: Checkout PR
+        if: ${{ !steps.changeset_action.outputs.published }}
         uses: dawidd6/action-checkout-pr@v1
         with:
           pr: ${{ steps.changeset_action.outputs.pullRequestNumber }}
 
       - name: Get branch name
-        run: echo "${{ github.head_ref }}"
+        id: branch-name
+        uses: tj-actions/branch-names@v6
+
+      - name: Running on the branch.
+        run: |
+          echo "Running on branch: ${{ steps.branch-name.outputs.current_branch }}"
