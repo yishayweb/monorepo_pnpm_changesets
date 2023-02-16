@@ -2,7 +2,7 @@ name: CheckPR
 description: A GitHub action to check pr
 runs:
   using: "node16"
-  main: "index.js"
+  main: "index.cjs"
 branding:
   icon: "package"
   color: "blue"
