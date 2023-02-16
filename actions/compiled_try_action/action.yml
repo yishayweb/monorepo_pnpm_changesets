@@ -1,0 +1,8 @@
+name: CheckPR
+description: A GitHub action to check pr
+runs:
+  using: "node16"
+  main: "index.js"
+branding:
+  icon: "package"
+  color: "blue"
