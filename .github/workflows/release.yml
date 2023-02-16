@@ -43,40 +43,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GIT_CHANGESET_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: get files
-        run: |
-          pwd
-          ls -a
-
-      - name: Get branch name before
-        run: echo "${{ github.head_ref }}"
-
-      - name: show pull request number
-        run: echo "the pr number is ${{ steps.changeset_action.outputs.pullRequestNumber }}"
-
-      - name: Checkout PR
-        if: ${{ !steps.changeset_action.outputs.published }}
-        uses: dawidd6/action-checkout-pr@v1
-        with:
-          pr: ${{ steps.changeset_action.outputs.pullRequestNumber }}
-
-      - name: Get branch name first
-        id: branch-name-first
-        uses: tj-actions/branch-names@v6
-
-      - name: Running on the branch first
-        run: |
-          echo "Running on branch: ${{ steps.branch-name-first.outputs.current_branch }}"
-
-      - name: Checkout PR branch v3
-        uses: actions/checkout@v3
-        with:
-          ref: changeset-release/master
-
-      - name: Get branch name second
-        id: branch-name-second
-        uses: tj-actions/branch-names@v6
-
-      - name: Running on the branch second
-        run: |
-          echo "Running on branch: ${{ steps.branch-name-second.outputs.current_branch }}"
+      - name: Try action
+        uses: ./actions/compiled_try_action
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_CHANGESET_TOKEN }}

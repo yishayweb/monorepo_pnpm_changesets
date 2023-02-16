@@ -6,3 +6,4 @@ changeset_status.json
 .pnpm-store
 actions/action_code
 scripts
+actions/try_action_code
