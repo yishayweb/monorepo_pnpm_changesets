@@ -11122,7 +11122,7 @@ __nccwpck_require__.r(__webpack_exports__);
 
 const getDiff = async () => {
   const diff = await (0,_actions_exec__WEBPACK_IMPORTED_MODULE_2__.exec)("git", [
-    "dif",
+    "diff",
     "--name-only",
     "origin/changeset-release/master..master"
   ]);
