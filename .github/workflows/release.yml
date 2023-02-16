@@ -47,7 +47,7 @@ jobs:
           pwd
           ls -a
 
-      - name: Get branch name
+      - name: Get branch name before
         run: echo "${{ github.head_ref }}"
 
       - name: show pull request number
