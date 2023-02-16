@@ -11124,9 +11124,7 @@ const getDiff = async () => {
   const diff = await (0,_actions_exec__WEBPACK_IMPORTED_MODULE_2__.exec)("git", [
     "dif",
     "--name-only",
-    "origin/changeset-release/master",
-    "..",
-    "master"
+    "origin/changeset-release/master..master"
   ]);
 
   console.log("the diff: ");
