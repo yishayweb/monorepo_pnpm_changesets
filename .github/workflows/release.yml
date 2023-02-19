@@ -43,6 +43,20 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GIT_CHANGESET_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      - name: Show outputs
+        run: |
+          echo "is publish ${{ steps.changeset_action.outputs.published }}"
+          echo "pr number ${{ steps.changeset_action.outputs.pullRequestNumber }}"
+          echo "pr branch ${{ github.head_ref }}"
+
+      - name: Verify publish
+        if: ${{ steps.changeset_action.outputs.published }}
+        run: echo "pr published packages"
+
+      - name: Verify not publish
+        if: ${{ !steps.changeset_action.outputs.published }}
+        run: echo "pr not published packages"
+
       - name: Try action
         uses: ./actions/compiled_try_action
         env:
