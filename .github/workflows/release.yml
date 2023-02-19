@@ -47,14 +47,15 @@ jobs:
         run: |
           echo "is publish ${{ steps.changeset_action.outputs.published }}"
           echo "pr number ${{ steps.changeset_action.outputs.pullRequestNumber }}"
-          echo "pr branch ${{ github.head_ref }}"
+          echo "pr base ref branch ${ GITHUB_BASE_REF }"
+          echo "pr branch ${ GITHUB_REF }"
 
       - name: Verify publish
-        if: ${{ steps.changeset_action.outputs.published }}
+        if: ${{ steps.changeset_action.outputs.published == 'true' }}
         run: echo "pr published packages"
 
       - name: Verify not publish
-        if: ${{ !steps.changeset_action.outputs.published }}
+        if: ${{ steps.changeset_action.outputs.published != 'true' }}
         run: echo "pr not published packages"
 
       - name: Try action
