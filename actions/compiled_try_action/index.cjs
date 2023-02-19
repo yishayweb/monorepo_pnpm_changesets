@@ -32898,9 +32898,9 @@ const updateVersions = async (diffFilesArray, dependentsMap) => {
   // });
 
   // console.log(prDiff);
-  const diffFilesArray = getDiff();
+  const diffFilesArray = await getDiff();
   console.log("files array is: ");
-  console.log(filesArray);
+  console.log(diffFilesArray);
   const dependents = await listPackages();
   console.log("dependents:", dependents);
   await updateVersions(diffFilesArray, dependents);
