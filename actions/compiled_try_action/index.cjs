@@ -32907,6 +32907,10 @@ const updateVersions = async (diffFilesArray, dependentsMap) => {
 
   const branchAfter = await (0,exec.getExecOutput)("git", ["status"]);
   console.log("git branch after: ", branchAfter);
+
+  await (0,exec.exec)("git", ["add", "pnpm-lock.yaml"]);
+  await (0,exec.exec)("git", ["commit", "-m", "update lock file automatically"]);
+  await (0,exec.exec)("git", ["push", "origin", "changeset-release/master"]);
 })().catch(err => {
   console.error(err);
   core.setFailed(err.message);
