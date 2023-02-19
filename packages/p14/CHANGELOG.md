@@ -1,5 +1,13 @@
 # @yishay20/p14
 
+## 3.0.5
+
+### Patch Changes
+
+- cc1e2cd: updated to 67
+- Updated dependencies [cc1e2cd]
+  - @yishay20/p13@3.6.12
+
 ## 3.0.4
 
 ### Patch Changes
