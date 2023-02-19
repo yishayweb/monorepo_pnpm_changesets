@@ -12066,7 +12066,7 @@ function getPackagesSync(dir) {
 }
 
 __webpack_unused_export__ = PackageJsonMissingNameError;
-__webpack_unused_export__ = getPackages;
+exports.getPackages = getPackages;
 __webpack_unused_export__ = getPackagesSync;
 
 
@@ -12079,9 +12079,9 @@ __webpack_unused_export__ = getPackagesSync;
 
 
 if (process.env.NODE_ENV === "production") {
-  /* unused reexport */ __nccwpck_require__(3067);
+  module.exports = __nccwpck_require__(3067);
 } else {
-  /* unused reexport */ __nccwpck_require__(2438);
+  module.exports = __nccwpck_require__(2438);
 }
 
 
@@ -12338,7 +12338,7 @@ function getPackagesSync(dir) {
   };
 }
 
-__webpack_unused_export__ = PackageJsonMissingNameError, __webpack_unused_export__ = getPackages, 
+__webpack_unused_export__ = PackageJsonMissingNameError, exports.getPackages = getPackages, 
 __webpack_unused_export__ = getPackagesSync;
 
 
@@ -32541,6 +32541,18 @@ module.exports = JSON.parse('[[[0,44],"disallowed_STD3_valid"],[[45,46],"valid"]
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__nccwpck_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__nccwpck_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -32597,7 +32609,8 @@ var exec = __nccwpck_require__(1514);
 // EXTERNAL MODULE: ../../node_modules/.pnpm/@manypkg+get-packages@1.1.3/node_modules/@manypkg/get-packages/dist/get-packages.cjs.js
 var get_packages_cjs = __nccwpck_require__(960);
 // EXTERNAL MODULE: ../../node_modules/.pnpm/semver@7.3.8/node_modules/semver/index.js
-var node_modules_semver = __nccwpck_require__(7421);
+var semver = __nccwpck_require__(7421);
+var semver_default = /*#__PURE__*/__nccwpck_require__.n(semver);
 ;// CONCATENATED MODULE: ./src/scripts/get-dependency-graph.js
 // This is a modified version of the graph-getting in bolt
 
@@ -32605,12 +32618,12 @@ var node_modules_semver = __nccwpck_require__(7421);
 // import { Packages, Package } from "@manypkg/get-packages";
 // import { PackageJSON } from "@changesets/types";
 
-const DEPENDENCY_TYPES = (/* unused pure expression or super */ null && ([
+const DEPENDENCY_TYPES = [
   "dependencies",
   "devDependencies",
   "peerDependencies",
   "optionalDependencies"
-]));
+];
 
 const getAllDependencies = config => {
   const allDependencies = new Map();
@@ -32643,13 +32656,13 @@ const getValidRange = potentialRange => {
   }
 
   try {
-    return new semver.Range(potentialRange);
+    return new (semver_default()).Range(potentialRange);
   } catch {
     return null;
   }
 };
 
-function get_dependency_graph_getDependencyGraph(packages, opts) {
+function getDependencyGraph(packages, opts) {
   const graph = new Map();
   let valid = true;
 
@@ -32719,7 +32732,7 @@ function get_dependency_graph_getDependencyGraph(packages, opts) {
 ;// CONCATENATED MODULE: ./src/scripts/get-dependents-graph.js
 
 
-function get_dependents_graph_getDependentsGraph(packages, opts) {
+function getDependentsGraph(packages, opts) {
   const graph = new Map();
 
   const { graph: dependencyGraph } = getDependencyGraph(packages, {
@@ -32769,8 +32782,8 @@ function get_dependents_graph_getDependentsGraph(packages, opts) {
 
 
 const listPackages = async () => {
-  const { tool, root, packages } = await getPackages(process.cwd());
-  const n = await getPackages(process.cwd());
+  const { tool, root, packages } = await (0,get_packages_cjs.getPackages)(process.cwd());
+  const n = await (0,get_packages_cjs.getPackages)(process.cwd());
 
   console.log("tool: ", tool);
   console.log("root: ", root);
@@ -32870,8 +32883,8 @@ const updateVersions = async (diffFilesArray, dependentsMap) => {
 
 (async () => {
   console.log("hello there");
-  const branch = (0,exec.getExecOutput)("git", ["status"]);
-  console.log("git branch: ", branch);
+  const branchBefore = await (0,exec.getExecOutput)("git", ["status"]);
+  console.log("git branch before: ", branchBefore);
   // let githubToken = process.env.GITHUB_TOKEN;
   // let octokit = github.getOctokit(githubToken);
 
@@ -32885,10 +32898,13 @@ const updateVersions = async (diffFilesArray, dependentsMap) => {
   // });
 
   // console.log(prDiff);
-  // const diffFilesArray = getDiff();
-  // const dependents = await listPackages();
-  // console.log("dependents:", dependents);
-  // await updateVersions(diffFilesArray, dependents);
+  const diffFilesArray = getDiff();
+  const dependents = await listPackages();
+  console.log("dependents:", dependents);
+  await updateVersions(diffFilesArray, dependents);
+
+  const branchAfter = await (0,exec.getExecOutput)("git", ["status"]);
+  console.log("git branch after: ", branchAfter);
 })().catch(err => {
   console.error(err);
   core.setFailed(err.message);
