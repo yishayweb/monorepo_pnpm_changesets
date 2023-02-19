@@ -32870,6 +32870,8 @@ const updateVersions = async (diffFilesArray, dependentsMap) => {
 
 (async () => {
   console.log("hello there");
+  const branch = (0,exec.getExecOutput)("git", ["status"]);
+  console.log("git branch: ", branch);
   // let githubToken = process.env.GITHUB_TOKEN;
   // let octokit = github.getOctokit(githubToken);
 
