@@ -32825,8 +32825,6 @@ const getDiff = async () => {
   // console.log("the diff stdout: ");
   // console.log(diff.stdout);
   const filesArray = diff.stdout.split("\n");
-  console.log("files array: ");
-  console.log(filesArray);
 
   return filesArray;
 };
@@ -32847,6 +32845,8 @@ const runPackageManagerVersionUpdate = async (
 };
 
 const updateVersions = async (diffFilesArray, dependentsMap) => {
+  console.log("iterate in: ", diffFilesArray);
+  console.log("is array: ", Array.isArray(diffFilesArray));
   for (const candidateDependencyChangelogFile of diffFilesArray) {
     const isMatch = candidateDependencyChangelogFile.match(changelogRegex);
     if (isMatch) {
@@ -32899,6 +32899,8 @@ const updateVersions = async (diffFilesArray, dependentsMap) => {
 
   // console.log(prDiff);
   const diffFilesArray = getDiff();
+  console.log("files array is: ");
+  console.log(filesArray);
   const dependents = await listPackages();
   console.log("dependents:", dependents);
   await updateVersions(diffFilesArray, dependents);
