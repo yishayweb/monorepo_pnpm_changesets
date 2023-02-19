@@ -32845,8 +32845,8 @@ const runPackageManagerVersionUpdate = async (
 };
 
 const updateVersions = async (diffFilesArray, dependentsMap) => {
-  console.log("iterate in: ", diffFilesArray);
-  console.log("is array: ", Array.isArray(diffFilesArray));
+  const folder = await (0,exec.getExecOutput)("pwd");
+  console.log("current folder: ", folder);
   for (const candidateDependencyChangelogFile of diffFilesArray) {
     const isMatch = candidateDependencyChangelogFile.match(changelogRegex);
     if (isMatch) {
