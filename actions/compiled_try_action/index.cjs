@@ -32620,10 +32620,10 @@ const DEPENDENCY_TYPES = [
   "dependencies",
   "devDependencies",
   "peerDependencies",
-  "optionalDependencies",
+  "optionalDependencies"
 ];
 
-const getAllDependencies = (config) => {
+const getAllDependencies = config => {
   const allDependencies = new Map();
 
   for (const type of DEPENDENCY_TYPES) {
@@ -32639,16 +32639,16 @@ const getAllDependencies = (config) => {
         continue;
       }
 
-      allDependencies.set(name, depRange);
+      allDependencies.set(name, { depRange: depRange, depType: type });
     }
   }
 
   return allDependencies;
 };
 
-const isProtocolRange = (range) => range.indexOf(":") !== -1;
+const isProtocolRange = range => range.indexOf(":") !== -1;
 
-const getValidRange = (potentialRange) => {
+const getValidRange = potentialRange => {
   if (isProtocolRange(potentialRange)) {
     return null;
   }
@@ -32665,7 +32665,7 @@ function getDependencyGraph(packages, opts) {
   let valid = true;
 
   const packagesByName = {
-    [packages.root.packageJson.name]: packages.root,
+    [packages.root.packageJson.name]: packages.root
   };
 
   const queue = [packages.root];
@@ -32680,7 +32680,7 @@ function getDependencyGraph(packages, opts) {
     const dependencies = [];
     const allDependencies = getAllDependencies(pkg.packageJson);
 
-    for (let [depName, depRange] of allDependencies) {
+    for (let [depName, { depRange, depType }] of allDependencies) {
       const match = packagesByName[depName];
       if (!match) continue;
 
@@ -32691,7 +32691,7 @@ function getDependencyGraph(packages, opts) {
         depRange = depRange.replace(/^workspace:/, "");
 
         if (depRange === "*" || depRange === "^" || depRange === "~") {
-          dependencies.push(depName);
+          dependencies.push({ depName, depType });
           continue;
         }
       } else if (opts?.bumpVersionsWithWorkspaceProtocolOnly === true) {
@@ -32719,7 +32719,7 @@ function getDependencyGraph(packages, opts) {
         continue;
       }
 
-      dependencies.push(depName);
+      dependencies.push({ depName, depType });
     }
 
     graph.set(name, { pkg, dependencies });
@@ -32754,7 +32754,10 @@ function getDependentsGraph(packages, opts) {
       const dependencies = valFromDependencyGraph.dependencies;
 
       dependencies.forEach(dependency => {
-        dependentsLookup[dependency].dependents.push(dependent);
+        dependentsLookup[dependency.depName].dependents.push({
+          dependent,
+          depType: dependency.depType
+        });
       });
     }
   });
