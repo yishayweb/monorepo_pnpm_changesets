@@ -1,5 +1,14 @@
 # @yishay20/p14
 
+## 3.0.4
+
+### Patch Changes
+
+- 36d8864: updated to 65
+- Updated dependencies [36d8864]
+- Updated dependencies [cfa095c]
+  - @yishay20/p13@3.6.11
+
 ## 3.0.3
 
 ### Patch Changes
