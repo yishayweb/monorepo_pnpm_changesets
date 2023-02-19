@@ -28,8 +28,11 @@ jobs:
       - name: install pnpm
         run: npm i pnpm@latest -g
 
+      - name: show location
+        run: pwd
+
       - name: setup pnpm config
-        run: pnpm config set store-dir $PNPM_CACHE_FOLDER
+        run: pnpm config set store-dir $PNPM_CACHE_FOLDER --global
 
       - name: install dependencies
         run: pnpm install
