@@ -12066,7 +12066,7 @@ function getPackagesSync(dir) {
 }
 
 __webpack_unused_export__ = PackageJsonMissingNameError;
-exports.getPackages = getPackages;
+__webpack_unused_export__ = getPackages;
 __webpack_unused_export__ = getPackagesSync;
 
 
@@ -12079,9 +12079,9 @@ __webpack_unused_export__ = getPackagesSync;
 
 
 if (process.env.NODE_ENV === "production") {
-  module.exports = __nccwpck_require__(3067);
+  /* unused reexport */ __nccwpck_require__(3067);
 } else {
-  module.exports = __nccwpck_require__(2438);
+  /* unused reexport */ __nccwpck_require__(2438);
 }
 
 
@@ -12338,7 +12338,7 @@ function getPackagesSync(dir) {
   };
 }
 
-__webpack_unused_export__ = PackageJsonMissingNameError, exports.getPackages = getPackages, 
+__webpack_unused_export__ = PackageJsonMissingNameError, __webpack_unused_export__ = getPackages, 
 __webpack_unused_export__ = getPackagesSync;
 
 
@@ -32541,18 +32541,6 @@ module.exports = JSON.parse('[[[0,44],"disallowed_STD3_valid"],[[45,46],"valid"]
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__nccwpck_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__nccwpck_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -32595,7 +32583,9 @@ __nccwpck_require__.r(__webpack_exports__);
 
 // EXPORTS
 __nccwpck_require__.d(__webpack_exports__, {
-  "getDiff": () => (/* binding */ getDiff)
+  "getDiff": () => (/* binding */ getDiff),
+  "runPackageManagerVersionUpdate": () => (/* binding */ runPackageManagerVersionUpdate),
+  "updateVersions": () => (/* binding */ updateVersions)
 });
 
 // EXTERNAL MODULE: ./node_modules/@actions/github/lib/github.js
@@ -32607,8 +32597,7 @@ var exec = __nccwpck_require__(1514);
 // EXTERNAL MODULE: ../../node_modules/.pnpm/@manypkg+get-packages@1.1.3/node_modules/@manypkg/get-packages/dist/get-packages.cjs.js
 var get_packages_cjs = __nccwpck_require__(960);
 // EXTERNAL MODULE: ../../node_modules/.pnpm/semver@7.3.8/node_modules/semver/index.js
-var semver = __nccwpck_require__(7421);
-var semver_default = /*#__PURE__*/__nccwpck_require__.n(semver);
+var node_modules_semver = __nccwpck_require__(7421);
 ;// CONCATENATED MODULE: ./src/scripts/get-dependency-graph.js
 // This is a modified version of the graph-getting in bolt
 
@@ -32616,12 +32605,12 @@ var semver_default = /*#__PURE__*/__nccwpck_require__.n(semver);
 // import { Packages, Package } from "@manypkg/get-packages";
 // import { PackageJSON } from "@changesets/types";
 
-const DEPENDENCY_TYPES = [
+const DEPENDENCY_TYPES = (/* unused pure expression or super */ null && ([
   "dependencies",
   "devDependencies",
   "peerDependencies",
   "optionalDependencies"
-];
+]));
 
 const getAllDependencies = config => {
   const allDependencies = new Map();
@@ -32654,13 +32643,13 @@ const getValidRange = potentialRange => {
   }
 
   try {
-    return new (semver_default()).Range(potentialRange);
+    return new semver.Range(potentialRange);
   } catch {
     return null;
   }
 };
 
-function getDependencyGraph(packages, opts) {
+function get_dependency_graph_getDependencyGraph(packages, opts) {
   const graph = new Map();
   let valid = true;
 
@@ -32730,7 +32719,7 @@ function getDependencyGraph(packages, opts) {
 ;// CONCATENATED MODULE: ./src/scripts/get-dependents-graph.js
 
 
-function getDependentsGraph(packages, opts) {
+function get_dependents_graph_getDependentsGraph(packages, opts) {
   const graph = new Map();
 
   const { graph: dependencyGraph } = getDependencyGraph(packages, {
@@ -32780,8 +32769,8 @@ function getDependentsGraph(packages, opts) {
 
 
 const listPackages = async () => {
-  const { tool, root, packages } = await (0,get_packages_cjs.getPackages)(process.cwd());
-  const n = await (0,get_packages_cjs.getPackages)(process.cwd());
+  const { tool, root, packages } = await getPackages(process.cwd());
+  const n = await getPackages(process.cwd());
 
   console.log("tool: ", tool);
   console.log("root: ", root);
@@ -32808,6 +32797,9 @@ const listPackages = async () => {
 
 
 
+const changelogRegex = /packages\/([A-Za-z0-9]+)\/CHANGELOG\.md$/;
+const packageNameWithPrefixRegex = /^@yishay20\/([A-Za-z0-9]+)$/;
+
 const getDiff = async () => {
   const diff = await (0,exec.getExecOutput)("git", [
     "diff",
@@ -32815,13 +32807,65 @@ const getDiff = async () => {
     "origin/changeset-release/master..master"
   ]);
 
-  console.log("the diff: ");
-  console.log(diff);
-  console.log("the diff stdout: ");
-  console.log(diff.stdout);
-  const filesArray = diff.stdout.split("\n");
+  // console.log("the diff: ");
+  // console.log(diff);
+  // console.log("the diff stdout: ");
+  // console.log(diff.stdout);
+  // const filesArray = diff.stdout.split("\n");
   console.log("files array: ");
   console.log(filesArray);
+
+  return filesArray;
+};
+
+const runPackageManagerVersionUpdate = async (
+  dependentPackageToUpdate,
+  dependencyName
+) => {
+  // run pnpm command
+  // pnpm --filter ${dependentName} add ${packageNameWithPrefix} --save-peer
+  await (0,exec.exec)("pnpm", [
+    "--filter",
+    dependentPackageToUpdate,
+    "add",
+    dependencyName,
+    "--save-peer"
+  ]);
+};
+
+const updateVersions = async (diffFilesArray, dependentsMap) => {
+  for (const candidateDependencyChangelogFile of diffFilesArray) {
+    const isMatch = candidateDependencyChangelogFile.match(changelogRegex);
+    if (isMatch) {
+      const dependencyName = isMatch[1];
+      const dependencyNameWithPrefix = `@yishay20/${dependencyName}`;
+
+      const currPackageDependentsArray = dependentsMap.get(
+        dependencyNameWithPrefix
+      );
+
+      if (Array.isArray(currPackageDependentsArray)) {
+        for (const dependentObj of currPackageDependentsArray) {
+          const { dependent: dependentNameWithPrefix, depType } = dependentObj;
+          const isMatchedDependentName = dependentNameWithPrefix.match(
+            packageNameWithPrefixRegex
+          );
+
+          if (isMatchedDependentName) {
+            const dependentName = isMatchedDependentName[1];
+            for (const fileName of diffFilesArray) {
+              if (fileName === `packages/${dependentName}/CHANGELOG.md`) {
+                await runPackageManagerVersionUpdate(
+                  dependentNameWithPrefix,
+                  dependencyNameWithPrefix
+                );
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 };
 
 (async () => {
@@ -32839,9 +32883,10 @@ const getDiff = async () => {
   // });
 
   // console.log(prDiff);
-  getDiff();
-  const dependents = await listPackages();
-  console.log("dependents:", dependents);
+  // const diffFilesArray = getDiff();
+  // const dependents = await listPackages();
+  // console.log("dependents:", dependents);
+  // await updateVersions(diffFilesArray, dependents);
 })().catch(err => {
   console.error(err);
   core.setFailed(err.message);
