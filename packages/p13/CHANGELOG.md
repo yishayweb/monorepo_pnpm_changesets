@@ -1,5 +1,15 @@
 # @yishay20/p13
 
+## 3.6.10
+
+### Patch Changes
+
+- d3f3608: updated to 198
+- 2a5628a: updated to 195
+- 286d93b: updated to 196
+- bb4596b: updated to 199
+- 1d68a91: updated to 197
+
 ## 3.6.9
 
 ### Patch Changes
