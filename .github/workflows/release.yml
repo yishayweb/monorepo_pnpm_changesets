@@ -58,8 +58,13 @@ jobs:
         if: ${{ steps.changeset_action.outputs.published != 'true' }}
         run: echo "pr not published packages"
 
-      - name: Try action
+      - name: Versions alignment
         if: ${{ steps.changeset_action.outputs.published != 'true' }}
-        uses: ./actions/compiled_try_action
+        uses: yishayweb/align-lock-versions@1.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_CHANGESET_TOKEN }}
+      # - name: Try action
+      #   if: ${{ steps.changeset_action.outputs.published != 'true' }}
+      #   uses: ./actions/compiled_try_action
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GIT_CHANGESET_TOKEN }}
