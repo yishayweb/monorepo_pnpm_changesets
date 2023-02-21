@@ -28,7 +28,7 @@ importers:
       '@babel/cli': ^7.16.0
       '@babel/core': ^7.16.5
       '@babel/preset-env': ^7.16.5
-      '@yishay20/p13': workspace:^3.6.12
+      '@yishay20/p13': workspace:^3.6.13
     devDependencies:
       '@babel/cli': 7.16.8_@babel+core@7.16.12
       '@babel/core': 7.16.12
