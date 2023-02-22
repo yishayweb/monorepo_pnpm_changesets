@@ -1,5 +1,13 @@
 # @yishay20/p14
 
+## 3.0.7
+
+### Patch Changes
+
+- 83a3255: updated to 72
+- Updated dependencies [83a3255]
+  - @yishay20/p13@3.6.14
+
 ## 3.0.6
 
 ### Patch Changes
