@@ -60,9 +60,9 @@ jobs:
 
       - name: Versions alignment
         if: ${{ steps.changeset_action.outputs.published != 'true' }}
-        uses: yishayweb/align-lock-versions@v1.1
+        uses: yishayweb/align-lock-versions@v1.2
         with:
-          org: "hello"
+          packageScopeName: "yishay20"
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_CHANGESET_TOKEN }}
       # - name: Try action
