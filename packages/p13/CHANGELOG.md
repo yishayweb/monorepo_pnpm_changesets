@@ -1,5 +1,17 @@
 # @yishay20/p13
 
+## 3.7.0
+
+### Minor Changes
+
+- 14a4f59: updated to 214
+
+### Patch Changes
+
+- 21af027: updated to 211
+- f7afe72: updated to 215
+- 2fb50cd: updated to 213
+
 ## 3.6.16
 
 ### Patch Changes
