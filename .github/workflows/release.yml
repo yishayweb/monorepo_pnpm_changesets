@@ -55,7 +55,7 @@ jobs:
         run: echo "pr published packages"
 
       - name: Verify not publish
-        if: ${{ steps.changeset_action.outputs.published != 'true' }}
+        if: ${{ steps.changeset_action.outputs.published == 'false' }}
         run: echo "pr not published packages"
 
       - name: Versions alignment
