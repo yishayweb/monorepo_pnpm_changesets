@@ -18,6 +18,9 @@ jobs:
         with:
           fetch-depth: 0 # OR "2" -> To retrieve the preceding commit.
 
+      - name: Show source branch of the pr
+        run: echo "the pr source branch is ${{ github.head_ref }}"
+
       - name: Check if workflow needs to run
         if: github.head_ref == 'changeset-release/master'
         run: echo ${{ github.head_ref }} == 'changeset-release/master'
