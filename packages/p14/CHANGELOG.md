@@ -1,5 +1,13 @@
 # @yishay20/p14
 
+## 3.0.10
+
+### Patch Changes
+
+- f966a5b: updated to 106
+- Updated dependencies [f966a5b]
+  - @yishay20/p13@3.7.1
+
 ## 3.0.9
 
 ### Patch Changes
