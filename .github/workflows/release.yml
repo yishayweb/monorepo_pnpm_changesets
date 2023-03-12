@@ -60,7 +60,7 @@ jobs:
 
       - name: Versions alignment
         if: ${{ steps.changeset_action.outputs.published != 'true' }}
-        uses: yishayweb/align-lock-versions@v1.3.1
+        uses: yishayweb/align-lock-versions@v1.3.2
         with:
           packageScopeName: "yishay20"
         env:
