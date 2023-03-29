@@ -39,7 +39,7 @@ importers:
         specifier: ^7.16.5
         version: 7.16.11(@babel/core@7.16.12)
       '@yishay20/p13':
-        specifier: workspace:^3.9.0
+        specifier: workspace:^3.10.0
         version: link:../p13
 
   packages/react-app:
