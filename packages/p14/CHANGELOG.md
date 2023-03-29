@@ -1,5 +1,13 @@
 # @yishay20/p14
 
+## 3.0.12
+
+### Patch Changes
+
+- 1338bcf: updated to 110
+- Updated dependencies [1338bcf]
+  - @yishay20/p13@3.7.3
+
 ## 3.0.11
 
 ### Patch Changes
