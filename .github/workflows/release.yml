@@ -68,7 +68,7 @@ jobs:
           packageScopeName: "yishay20"
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_CHANGESET_TOKEN }}
-      # - name: Try action
+      # - name: Try actionn
       #   if: ${{ steps.changeset_action.outputs.published != 'true' }}
       #   uses: ./actions/compiled_try_action
       #   env:
