@@ -59,14 +59,13 @@ jobs:
       - name: Verify not publish
         if: ${{ steps.changeset_action.outputs.published == 'false' }}
         run: echo "pr not published packages"
-
-      - name: Versions alignment
-        if: ${{ steps.changeset_action.outputs.published != 'true' }}
-        uses: yishayweb/align-lock-versions@v1.3.2
-        with:
-          packageScopeName: "yishay20"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GIT_CHANGESET_TOKEN }}
+      # - name: Versions alignment
+      #   if: ${{ steps.changeset_action.outputs.published != 'true' }}
+      #   uses: yishayweb/align-lock-versions@v1.3.2
+      #   with:
+      #     packageScopeName: "yishay20"
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GIT_CHANGESET_TOKEN }}
       # - name: Try action
       #   if: ${{ steps.changeset_action.outputs.published != 'true' }}
       #   uses: ./actions/compiled_try_action
