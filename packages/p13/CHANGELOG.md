@@ -1,5 +1,11 @@
 # @yishay20/p13
 
+## 3.10.2
+
+### Patch Changes
+
+- 8964872: updated 248
+
 ## 3.10.1
 
 ### Patch Changes
