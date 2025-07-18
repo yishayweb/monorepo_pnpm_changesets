@@ -63,7 +63,7 @@ jobs:
         run: echo "pr not published packages"
       - name: Versions alignment
         if: ${{ steps.changeset_action.outputs.published != 'true' }}
-        uses: yishayweb/align-lock-versions@v1.3.3
+        uses: yishayweb/align-lock-versions@v1.3.4
         with:
           packageScopeName: "yishay20"
         env:
