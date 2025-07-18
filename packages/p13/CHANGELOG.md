@@ -1,5 +1,13 @@
 # @yishay20/p13
 
+## 3.10.1
+
+### Patch Changes
+
+- 082b597: updated 246
+- b97cb1a: updated 235
+- 4f8d622: updated 233
+
 ## 3.10.0
 
 ### Minor Changes

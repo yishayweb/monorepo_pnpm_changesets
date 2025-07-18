@@ -1,5 +1,15 @@
 # @yishay20/p14
 
+## 5.0.2
+
+### Patch Changes
+
+- fc0ba44: updated 127
+- Updated dependencies [082b597]
+- Updated dependencies [b97cb1a]
+- Updated dependencies [4f8d622]
+  - @yishay20/p13@3.10.1
+
 ## 5.0.1
 
 ### Patch Changes
