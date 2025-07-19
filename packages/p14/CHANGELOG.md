@@ -1,5 +1,13 @@
 # @yishay20/p14
 
+## 5.0.2-version2.2
+
+### Patch Changes
+
+- b3cab7b: updated 150
+- Updated dependencies [b3cab7b]
+  - @yishay20/p13@3.11.0-version2.3
+
 ## 5.0.2-version2.1
 
 ### Patch Changes
