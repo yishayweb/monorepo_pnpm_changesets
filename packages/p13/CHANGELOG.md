@@ -1,5 +1,12 @@
 # @yishay20/p13
 
+## 3.10.2-release1.1
+
+### Patch Changes
+
+- 82e7c41: updated 250
+- cf8717e: updated 252
+
 ## 3.10.2
 
 ### Patch Changes
