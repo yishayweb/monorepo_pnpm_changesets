@@ -7,6 +7,8 @@
     "@yishay20/react-app-10": "1.0.2"
   },
   "changesets": [
-    "legal-lines-shop"
+    "legal-lines-shop",
+    "metal-flowers-work",
+    "plenty-queens-see"
   ]
 }
