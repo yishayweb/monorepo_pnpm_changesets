@@ -1,6 +1,6 @@
 {
   "name": "@yishay20/p14",
-  "version": "5.0.2",
+  "version": "5.0.2-v1.0",
   "license": "MIT",
   "main": "lib/index.js",
   "files": [
@@ -13,7 +13,7 @@
     "@babel/cli": "^7.16.0",
     "@babel/core": "^7.16.5",
     "@babel/preset-env": "^7.16.5",
-    "@yishay20/p13": "workspace:^3.10.1"
+    "@yishay20/p13": "workspace:^3.10.1-v1.0"
   },
   "publishConfig": {
     "access": "public"
