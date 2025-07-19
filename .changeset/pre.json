@@ -6,5 +6,8 @@
     "@yishay20/p14": "5.0.2",
     "@yishay20/react-app-10": "1.0.2"
   },
-  "changesets": []
+  "changesets": [
+    "chubby-pots-end",
+    "polite-comics-allow"
+  ]
 }
