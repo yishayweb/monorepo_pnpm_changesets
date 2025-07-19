@@ -1,6 +1,6 @@
 {
   "mode": "pre",
-  "tag": "v1",
+  "tag": "release1",
   "initialVersions": {
     "@yishay20/p13": "3.10.2",
     "@yishay20/p14": "5.0.2",
