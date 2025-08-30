@@ -1,5 +1,12 @@
 # @yishay20/p14
 
+## 5.0.2-version3.1
+
+### Patch Changes
+
+- Updated dependencies [bd0bf5b]
+  - @yishay20/p13@3.10.2-version3.1
+
 ## 5.0.2
 
 ### Patch Changes
