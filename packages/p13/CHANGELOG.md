@@ -1,5 +1,11 @@
 # @yishay20/p13
 
+## 3.10.2-version3.2
+
+### Patch Changes
+
+- 26e2102: updated to 252
+
 ## 3.10.2-version3.1
 
 ### Patch Changes
