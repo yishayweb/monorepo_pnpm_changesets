@@ -7,7 +7,9 @@
     "@yishay20/react-app-10": "1.0.2"
   },
   "changesets": [
+    "better-otters-roll",
     "early-bees-beg",
-    "early-owls-talk"
+    "early-owls-talk",
+    "small-meals-run"
   ]
 }
