@@ -1,6 +1,6 @@
 {
   "name": "@yishay20/react-app-10",
-  "version": "1.0.3",
+  "version": "1.0.4-version7.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -22,7 +22,7 @@
     "webpack-dev-server": "^4.6.0"
   },
   "dependencies": {
-    "@yishay20/p13": "workspace:3.10.4",
+    "@yishay20/p13": "workspace:3.10.5-version7.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },

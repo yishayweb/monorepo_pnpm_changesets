@@ -6,5 +6,7 @@
     "@yishay20/p14": "5.0.3",
     "@yishay20/react-app-10": "1.0.3"
   },
-  "changesets": []
+  "changesets": [
+    "afraid-dancers-move"
+  ]
 }

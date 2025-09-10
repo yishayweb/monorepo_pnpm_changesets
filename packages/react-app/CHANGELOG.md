@@ -1,5 +1,13 @@
 # @yishay20/react-app-10
 
+## 1.0.4-version7.0
+
+### Patch Changes
+
+- d2484b3: updated all packages
+- Updated dependencies [d2484b3]
+  - @yishay20/p13@3.10.5-version7.0
+
 ## 1.0.3
 
 ### Patch Changes
