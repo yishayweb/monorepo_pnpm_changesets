@@ -1,5 +1,11 @@
 # @yishay20/p13
 
+## 3.10.5-version7.0
+
+### Patch Changes
+
+- d2484b3: updated all packages
+
 ## 3.10.4
 
 ### Patch Changes
