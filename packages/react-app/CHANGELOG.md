@@ -1,5 +1,11 @@
 # @yishay20/react-app-10
 
+## 1.0.3
+
+### Patch Changes
+
+- 015bc4d: updated versions
+
 ## 1.0.2
 
 ### Patch Changes
