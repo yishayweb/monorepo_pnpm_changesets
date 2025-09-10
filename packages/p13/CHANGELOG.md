@@ -1,5 +1,11 @@
 # @yishay20/p13
 
+## 3.10.5-version6.0
+
+### Patch Changes
+
+- 2baa7ec: updated all versions
+
 ## 3.10.4
 
 ### Patch Changes
