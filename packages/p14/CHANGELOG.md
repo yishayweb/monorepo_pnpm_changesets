@@ -1,5 +1,13 @@
 # @yishay20/p14
 
+## 5.0.3-version6.0
+
+### Patch Changes
+
+- 2baa7ec: updated all versions
+- Updated dependencies [2baa7ec]
+  - @yishay20/p13@3.10.5-version6.0
+
 ## 5.0.2
 
 ### Patch Changes
