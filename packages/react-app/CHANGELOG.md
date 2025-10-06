@@ -1,5 +1,12 @@
 # @yishay20/react-app-10
 
+## 1.0.6
+
+### Patch Changes
+
+- Updated dependencies [d49f2d4]
+  - @yishay20/p13@3.12.0
+
 ## 1.0.5
 
 ### Patch Changes

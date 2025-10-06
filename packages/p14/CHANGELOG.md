@@ -1,5 +1,13 @@
 # @yishay20/p14
 
+## 5.0.6
+
+### Patch Changes
+
+- d49f2d4: updated to 134
+- Updated dependencies [d49f2d4]
+  - @yishay20/p13@3.12.0
+
 ## 5.0.5
 
 ### Patch Changes

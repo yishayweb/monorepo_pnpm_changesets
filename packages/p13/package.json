@@ -1,6 +1,6 @@
 {
   "name": "@yishay20/p13",
-  "version": "3.11.1",
+  "version": "3.12.0",
   "license": "MIT",
   "main": "lib/index.js",
   "files": [
