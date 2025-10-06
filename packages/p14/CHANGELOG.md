@@ -1,5 +1,12 @@
 # @yishay20/p14
 
+## 6.0.0
+
+### Patch Changes
+
+- Updated dependencies [fbdc006]
+  - @yishay20/p13@3.13.0
+
 ## 5.0.7
 
 ### Patch Changes
