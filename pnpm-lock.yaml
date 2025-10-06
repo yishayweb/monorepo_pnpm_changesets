@@ -52,7 +52,7 @@ importers:
   packages/react-app:
     dependencies:
       '@yishay20/p13':
-        specifier: workspace:*
+        specifier: workspace:^3.12.0
         version: link:../p13
       react:
         specifier: ^17.0.2

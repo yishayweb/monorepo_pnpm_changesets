@@ -22,7 +22,7 @@
     "webpack-dev-server": "^4.6.0"
   },
   "dependencies": {
-    "@yishay20/p13": "workspace:*",
+    "@yishay20/p13": "workspace:^3.12.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
