@@ -1,5 +1,11 @@
 # @yishay20/p14
 
+## 5.0.7
+
+### Patch Changes
+
+- 8467371: made version exact
+
 ## 5.0.6
 
 ### Patch Changes
