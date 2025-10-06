@@ -1,5 +1,5 @@
 ---
-"@yishay20/p13": patch
+"@yishay20/p13": minor
 ---
 
 updated to 257
