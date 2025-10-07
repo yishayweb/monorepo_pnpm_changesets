@@ -27,6 +27,7 @@ update_package_version() {
         
         # Change to package directory for npm commands
         cd "$package_dir"
+        echo "   Current dir: $(pwd)"
         
         # Extract current version using npm
         current_version=$(npm pkg get version | tr -d '"')
@@ -42,7 +43,9 @@ update_package_version() {
         echo "   ✅ Updated $package_json to version $new_version"
         
         # Return to original directory
+        echo "   before current: $(pwd)"
         cd - > /dev/null
+        echo "   after current: $(pwd)"
     else
         echo "   ⚠️  No package.json found in $package_dir"
     fi
