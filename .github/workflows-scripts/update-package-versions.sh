@@ -25,23 +25,24 @@ update_package_version() {
     if [[ -f "$package_json" ]]; then
         echo "📦 Processing $package_json"
         
-        # Extract current version using node
-        current_version=$(node -p "require('$package_json').version")
+        # Change to package directory for npm commands
+        cd "$package_dir"
+        
+        # Extract current version using npm
+        current_version=$(npm pkg get version | tr -d '"')
         echo "   Current version: $current_version"
         
         # Create new version with branch tag
         new_version="${current_version}-${BRANCH_NAME}.0"
         echo "   New version: $new_version"
         
-        # Update the package.json file
-        node -e "
-            const fs = require('fs');
-            const pkg = JSON.parse(fs.readFileSync('$package_json', 'utf8'));
-            pkg.version = '$new_version';
-            fs.writeFileSync('$package_json', JSON.stringify(pkg, null, 2) + '\n');
-        "
+        # Update the package.json version using npm
+        npm pkg set version="$new_version"
         
         echo "   ✅ Updated $package_json to version $new_version"
+        
+        # Return to original directory
+        cd - > /dev/null
     else
         echo "   ⚠️  No package.json found in $package_dir"
     fi
