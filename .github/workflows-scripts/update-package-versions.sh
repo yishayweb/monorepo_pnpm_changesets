@@ -18,6 +18,8 @@ echo "🔄 Updating package versions with branch tag: $BRANCH_NAME"
 # Function to update package.json version
 update_package_version() {
     local package_dir=$1
+    # Remove trailing slash if present
+    package_dir=${package_dir%/}
     local package_json="$package_dir/package.json"
     
     if [[ -f "$package_json" ]]; then
