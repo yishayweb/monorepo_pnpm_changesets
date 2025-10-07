@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       branch_name:
-        description: 'Branch name for cutoff'
+        description: "Branch name for cutoff"
         required: true
         type: string
 
@@ -57,85 +57,22 @@ jobs:
         run: pnpm changeset pre enter ${{ inputs.branch_name }}
 
       - name: Update release workflow
-        run: |
-          # Update release.yml to include the new branch
-          python3 -c "
-import yaml
-import sys
+        run: python3 .github/workflows-scripts/update-release-workflow.py ${{ inputs.branch_name }}
 
-# Read the release.yml file
-with open('.github/workflows/release.yml', 'r') as f:
-    content = f.read()
-
-# Split content into lines for manual processing since it's a workflow file
-lines = content.split('\n')
-new_lines = []
-branch_added = False
-
-for i, line in enumerate(lines):
-    new_lines.append(line)
-    # Look for the main branch line and add our branch after it
-    if '- main' in line and not branch_added:
-        # Add the new branch with the same indentation
-        indent = line[:line.index('- main')]
-        new_lines.append(f'{indent}- ${{ inputs.branch_name }}')
-        branch_added = True
-
-# Write back to file
-with open('.github/workflows/release.yml', 'w') as f:
-    f.write('\n'.join(new_lines))
-
-print('Updated release.yml with branch: ${{ inputs.branch_name }}')
-          "
+      - name: Make scripts executable
+        run: chmod +x .github/workflows-scripts/update-package-versions.sh
 
       - name: Update package versions with branch tag
-        run: |
-          # Function to update package.json version
-          update_package_version() {
-            local package_dir=$1
-            local package_json="$package_dir/package.json"
-            
-            if [[ -f "$package_json" ]]; then
-              echo "Processing $package_json"
-              
-              # Extract current version using node
-              current_version=$(node -p "require('$package_json').version")
-              echo "Current version: $current_version"
-              
-              # Create new version with branch tag
-              new_version="${current_version}-${{ inputs.branch_name }}.0"
-              echo "New version: $new_version"
-              
-              # Update the package.json file
-              node -e "
-                const fs = require('fs');
-                const pkg = JSON.parse(fs.readFileSync('$package_json', 'utf8'));
-                pkg.version = '$new_version';
-                fs.writeFileSync('$package_json', JSON.stringify(pkg, null, 2) + '\n');
-              "
-              
-              echo "Updated $package_json to version $new_version"
-            else
-              echo "No package.json found in $package_dir"
-            fi
-          }
-          
-          # Process all packages in the packages directory
-          for package_dir in packages/*/; do
-            if [[ -d "$package_dir" ]]; then
-              echo "Found package directory: $package_dir"
-              update_package_version "$package_dir"
-            fi
-          done
+        run: ./.github/workflows-scripts/update-package-versions.sh ${{ inputs.branch_name }}
 
       - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          
+
           # Add all changes
           git add .
-          
+
           # Check if there are changes to commit
           if git diff --staged --quiet; then
             echo "No changes to commit"
