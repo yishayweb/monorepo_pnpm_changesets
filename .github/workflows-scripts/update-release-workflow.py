@@ -26,15 +26,15 @@ def update_release_workflow(branch_name):
     
     for line in lines:
         new_lines.append(line)
-        # Look for the main branch line and add our branch after it
-        if '- main' in line and not branch_added:
+        # Look for the master branch line and add our branch after it
+        if '- master' in line and not branch_added:
             # Add the new branch with the same indentation
-            indent = line[:line.index('- main')]
+            indent = line[:line.index('- master')]
             new_lines.append(f'{indent}- {branch_name}')
             branch_added = True
     
     if not branch_added:
-        print("Warning: Could not find '- main' branch in release.yml")
+        print("Warning: Could not find '- master' branch in release.yml")
         sys.exit(1)
     
     # Write back to file
