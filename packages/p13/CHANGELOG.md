@@ -1,5 +1,11 @@
 # @yishay20/p13
 
+## 3.15.0
+
+### Minor Changes
+
+- 1104a79: updated to 260
+
 ## 3.14.0
 
 ### Minor Changes
