@@ -1,0 +1,83 @@
+name: Cutoff
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch_name:
+        description: "Branch name for cutoff"
+        required: true
+        type: string
+
+env:
+  CI: true
+  PNPM_CACHE_FOLDER: .pnpm-store
+
+permissions:
+  id-token: write
+  contents: write
+  pull-requests: write
+
+jobs:
+  cutoff:
+    name: Cutoff
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install pnpm
+        run: npm i pnpm@latest -g
+
+      - name: Show pnpm version
+        run: pnpm -v
+
+      - name: Set pnpm workspace protocol
+        run: pnpm config set save-workspace-protocol true
+
+      - name: Setup pnpm config
+        run: pnpm config set store-dir $PNPM_CACHE_FOLDER
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Checkout to cutoff branch
+        run: |
+          git checkout -b ${{ inputs.branch_name }}
+          git push -u origin ${{ inputs.branch_name }}
+
+      - name: Enter changeset pre-release mode
+        run: pnpm changeset pre enter ${{ inputs.branch_name }}
+
+      - name: Update release workflow
+        run: python3 .github/workflows-scripts/update-release-workflow.py ${{ inputs.branch_name }}
+
+      - name: Make scripts executable
+        run: chmod +x .github/workflows-scripts/update-package-versions.sh
+
+      - name: Update package versions with branch tag
+        run: ./.github/workflows-scripts/update-package-versions.sh ${{ inputs.branch_name }}
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+          # Add all changes
+          git add .
+
+          # Check if there are changes to commit
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: cutoff for branch ${{ inputs.branch_name }}"
+            git push origin ${{ inputs.branch_name }}
+            echo "Changes committed and pushed"
+          fi
