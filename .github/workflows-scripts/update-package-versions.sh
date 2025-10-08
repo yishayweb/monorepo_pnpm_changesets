@@ -17,10 +17,14 @@ echo "🔄 Updating package versions with branch tag: $BRANCH_NAME"
 
 # Function to update package.json version
 update_package_version() {
+    echo "starting function"
     local package_dir=$1
+    echo "with $package_dir"
     # Remove trailing slash if present
     package_dir=${package_dir%/}
+    echo "package dir nice $package_dir"
     local package_json="$package_dir/package.json"
+    echo "package json $package_json"
     
     if [[ -f "$package_json" ]]; then
         echo "📦 Processing $package_json"
@@ -62,12 +66,20 @@ echo "📁 Scanning packages directory..."
 # Process all packages in the packages directory
 package_count=0
 for package_dir in packages/*/; do
+    echo "Currnt dir in loop: $(pwd)"
+    echo "Package: $package_dir"
     if [[ -d "$package_dir" ]]; then
         echo "📂 Found package directory: $package_dir"
         update_package_version "$package_dir"
+        echo "It finished handling: $package_dir"
         ((package_count++))
+        echo "Package count is"
+        echo "Package count $package_count"
+        echo "After package count"
     fi
 done
+
+echo "After loop"
 
 if [ $package_count -eq 0 ]; then
     echo "⚠️  No packages found in packages/ directory"
