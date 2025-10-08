@@ -1,0 +1,10 @@
+{
+  "mode": "pre",
+  "tag": "version34",
+  "initialVersions": {
+    "@yishay20/p13": "3.15.0",
+    "@yishay20/p14": "5.0.8",
+    "@yishay20/react-app-10": "1.0.6"
+  },
+  "changesets": []
+}
