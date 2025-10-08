@@ -72,7 +72,7 @@ for package_dir in packages/*/; do
         echo "📂 Found package directory: $package_dir"
         update_package_version "$package_dir"
         echo "It finished handling: $package_dir"
-        ((package_count++))
+        package_count=$((package_count + 1))
         echo "Package count is"
         echo "Package count $package_count"
         echo "After package count"
